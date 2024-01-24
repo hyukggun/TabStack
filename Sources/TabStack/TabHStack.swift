@@ -5,12 +5,18 @@ public struct TabHStack<TabType, TabLabelView>: View where TabType: TabItemRepre
     @Namespace
     private var namespace
     
-    public var tabValues: [TabType]
+    public let tabValues: [TabType]
     
     @State
     public var selectedTab: TabType?
     
     var selectedTabLabelViewBuilder: (TabType, Bool) -> TabLabelView
+    
+    public init(tabValues: [TabType], selectedTab: TabType? = nil, selectedTabLabelViewBuilder: @escaping (TabType, Bool) -> TabLabelView) {
+        self.tabValues = tabValues
+        self.selectedTabLabelViewBuilder = selectedTabLabelViewBuilder
+        self.selectedTab = selectedTab
+    }
     
     public var body: some View {
         HStack(spacing: 0) {
