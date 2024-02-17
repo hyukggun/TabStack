@@ -16,17 +16,18 @@ public struct TabItem<TabType, TabLabelView>: View where TabType: Hashable, TabL
     
     let namespace: Namespace.ID
     
-    let currentTab: TabType
+    public let currentTab: TabType
     
     @Binding
-    var selectedTab: TabType?
+    public var selectedTab: TabType?
     
     private var isSelected: Bool {
         guard let selectedTab else { return false }
-        return selectedTab == currentTab
+        return selectedTab.hashValue == currentTab.hashValue
     }
     
-    var tabLabelViewBuilder: (TabType, Bool) -> TabLabelView
+    @ViewBuilder
+    public var tabLabelViewBuilder: (TabType, Bool) -> TabLabelView
     
     public var body: some View {
         Button(action: {

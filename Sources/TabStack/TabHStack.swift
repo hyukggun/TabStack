@@ -7,10 +7,11 @@ public struct TabHStack<TabType, TabLabelView>: View where TabType: TabItemRepre
     
     public let tabValues: [TabType]
     
+    @ViewBuilder
+    public var selectedTabLabelViewBuilder: (TabType, Bool) -> TabLabelView
+    
     @State
     public var selectedTab: TabType?
-    
-    var selectedTabLabelViewBuilder: (TabType, Bool) -> TabLabelView
     
     public init(tabValues: [TabType], selectedTab: TabType? = nil, selectedTabLabelViewBuilder: @escaping (TabType, Bool) -> TabLabelView) {
         self.tabValues = tabValues
