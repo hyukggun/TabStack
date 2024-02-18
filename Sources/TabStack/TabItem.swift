@@ -7,10 +7,6 @@
 
 import SwiftUI
 
-public protocol TabItemRepresentable: Hashable {
-    var title: String { get }
-}
-
 @available(macOS 11.0, iOS 13.0, *)
 public struct TabItem<TabType, TabLabelView>: View where TabType: Hashable, TabLabelView: View {
     

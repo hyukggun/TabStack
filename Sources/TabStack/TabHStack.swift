@@ -1,7 +1,7 @@
 import SwiftUI
 
 @available(macOS 11.0, iOS 13.0, *)
-public struct TabHStack<TabType, TabLabelView>: View where TabType: TabItemRepresentable, TabLabelView: View {
+public struct TabHStack<TabType, TabLabelView>: View where TabType: Hashable, TabLabelView: View {
     @Namespace
     private var namespace
     
