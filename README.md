@@ -14,7 +14,7 @@ It makes it easy to configure multi-tabbed interfaces with just a few lines of c
 import SwiftUI
 import TabStack
 
-enum MovieSections: TabItemRepresentable, CaseIterable {
+enum MovieSections: CaseIterable {
     case nowPlaying
     case popular
     case upcoming
