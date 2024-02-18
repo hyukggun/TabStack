@@ -14,6 +14,23 @@ It makes it easy to configure multi-tabbed interfaces with just a few lines of c
 import SwiftUI
 import TabStack
 
+enum MovieSections: TabItemRepresentable, CaseIterable {
+    case nowPlaying
+    case popular
+    case upcoming
+    
+    var title: String {
+        switch self {
+        case .nowPlaying:
+            "Now Playing Movies"
+        case .popular:
+            "Popular Movies"
+        case .upcoming:
+            "Upcoming Movies"
+        }
+    }
+}
+
 
 struct TabHStackExamplePage: View {
     
